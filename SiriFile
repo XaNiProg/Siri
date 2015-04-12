@@ -3,78 +3,110 @@ uses crt;
 var
 name: String;
 year,count: Integer;
-vopros,w: String;
-
+vopros,otvet1,otvet2,otvet3,otvet4: String;
+procedure names(name:string);
+begin
+case name of
+'Кирилл': writeln('Привет, ', name);
+'Кирил':
+begin
+writeln('Ты не правильно написал свое имя!');
+writeln('Будь внимательнее.');
+writeln('Привет, Кирилл');
+end;
+'': writeln('Привет, ', name);
+else
+begin
+  writeln('Странное у тебя имя...');
+  writeln('Либо разработчик ленивый и не добавил твое имя в мою базу данных =(');
+  writeln('Ладно, привет, ', name);
+end;
+end;
+end;
 procedure ask(question:string);
 begin
 case question of
 'Сколько тебе лет?': writeln('Я же отвечала, ', year + 1);
 'Сколько тебе лет': writeln('Я же отвечала, ', year + 1);
-'Кто тебя создал?': writeln('Савинов Кирилл, 8 "Б"');
-'Кто тебя создал': writeln('Савинов Кирилл, 8 "Б"');
-'Как дела?': writeln('Отлично, а у тебя?');
+'Кто тебя создал?': writeln('Ученик Савинов Кирилл, 8 "Б", школа №17, город Екатеринбург');
+'Кто тебя создал': writeln('Ученик Савинов Кирилл, 8 "Б", школа №17, город Екатеринбург');
+'Как дела?': 
+   begin
+    writeln('Отлично, а у тебя?');
+    readln(otvet1);
+    case otvet1 of
+    'Норм':
+    begin
+      writeln('Оригинальность - твой конек!');
+      writeln('Ответь нормально, все таки с девушкой разговариваешь...');
+      readln(otvet2);
+      case otvet2 of
+        'Нормально': writeln('Уже лучше =)');
+        'Хорошо': writeln('Воот! Ведь можешь же, когда захочешь =)');
+        'Отлично': writeln('У меня тоже, как видишь =)');
+      
+      
+      end;
+    end;
+    'Ужасно':
+      begin
+        writeln('Я попытаюсь тебе поднять настроение =)');
+        writeln('Анекдот...');
+        writeln('--------------------------------------');
+        writeln('Принцип действия грузинской мышеловки.');
+        writeln('Ставится два нетяжелых бруска , сверху кладется кирпич');
+        writeln('Внутрь кладется кусок сыра побольше.');
+        writeln('Заходит внутрь мышеловки грузинская мышь.');
+        writeln('Видит сыр, распахивает руки и говорит:');
+        writeln('- Вах, какой большой кусок сыра!');
+        writeln('Тут-то на нее кирпич и падает...');
+        writeln('--------------------------------------');
+        writeln('Ну как? Я подняла тебе настроение?(Да/Нет)');
+        readln(otvet3);
+        case otvet3 of
+          'Да': writeln('Ура!!! Я научилась поднимать людям настроение!');
+          'Нет':
+          begin
+            writeln('Ну тогда держи еще анекдот!');
+            writeln('--------------------------------------');
+            writeln('Счастье - это когда утром НЕ НАДО НА РАБОТУ,');
+            writeln('а вечером НЕ НАДО ДОМОЙ!');
+            writeln('--------------------------------------');
+            writeln('Ну, а сейчас? Я подняла тебе настроение?(Да/Нет)');
+            readln(otvet4);
+            case otvet4 of
+              'Да': writeln('Фух! А то у меня уже кончились анекдоты!');
+              'Нет': writeln('Прости у меня кончились анекдоты =(');
+            end;
+          end;
+        end;
+      end;
+    end;
+  end;
+
 else
     begin
     writeln('Я тебя не понимаю =(');
     writeln('Задай другой вопрос!');
+    writeln('По поводу грамматических ошибок и "багов", писать сюда');
+    writeln('kssavinov@mail.ru');
     end;
 end;
 
 end;
 
 begin
+textcolor(Green);
 writeln('Привет, я программа которая отвечает на вопросы.');
 writeln('Меня зовут Сири, да-да мое имя такое же как у той программы из Apple...');
 writeln('Вообщем не важно, а тебя как зовут?');
 readln(name);
-
-if name = ('Сергей') then
-    writeln('Привет,', name)
-    else
-        if name = ('Кирилл') then
-            writeln('Привет,', name)
-        else
-            if name = ('Кирил') then
-                begin
-                    writeln('Как тебе не стыдно! Ты не правильно написал свое имя!');
-                    writeln('Кирилл с двумя "л", будь внимательнее');
-                    writeln('Привет, Кирилл');
-                end
-            else
-                if name = ('') then
-                    writeln('Привет,', name)
-                else
-                    if name = ('Артем') then
-                        writeln('Привет,', name)
-                    else
-                        if name = ('Денис') then
-                            writeln('Привет,', name)
-                        else
-                            if name = ('Тимур') then
-                                writeln('Привет,', name)
-                            else
-                                if name = ('Александр') then
-                                    writeln('Привет,', name)
-                                else
-                                    if name = ('Саня') then
-                                        writeln('Привет бандит ', name)
-                                    else
-                                        if name = ('Анатолий') then
-                                            writeln('Привет,', name)
-                                        else
-                                            if name = ('Антон') then
-                                                writeln('Привет,', name)
-                                            else
-                                                begin
-                                                    writeln('Странное у тебя имя... Либо у меня база данных имен хромает ');
-                                                    writeln('Привет, ', name);
-                                                end;
-
+names(name);
 writeln('Сколько тебе лет?');
 readln(year);
     if year = 18 then writeln('Ого какой большой');
 writeln('А мне ', year + 1);
-writeln('Задай мне вопрос.');
+writeln('Задай мне вопрос(Например: Как дела?).');
 count:=0;
 while count=0 do
 begin
