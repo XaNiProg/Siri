@@ -5,32 +5,32 @@ name: String;
 year,count: Integer;
 vopros,otvet1,otvet2,otvet3,otvet4: String;
 procedure names(name:string);
-begin
-case name of
-'Кирилл': writeln('Привет, ', name);
-'Кирил':
-begin
-writeln('Ты не правильно написал свое имя!');
-writeln('Будь внимательнее.');
-writeln('Привет, Кирилл');
-end;
-'': writeln('Привет, ', name);
-else
-begin
-  writeln('Странное у тебя имя...');
-  writeln('Либо разработчик ленивый и не добавил твое имя в мою базу данных =(');
-  writeln('Ладно, привет, ', name);
-end;
-end;
-end;
+  begin
+  case name of
+    'Кирилл': writeln('Привет, ', name);
+    'Кирил':
+    begin
+      writeln('Ты не правильно написал свое имя!');
+      writeln('Будь внимательнее.');
+      writeln('Привет, Кирилл');
+    end;
+    '': writeln('Привет, ', name);// Дописать имена
+    else
+      begin
+        writeln('Странное у тебя имя...');
+        writeln('Либо разработчик ленивый и не добавил твое имя в мою базу данных =(');
+        writeln('Ладно, привет, ', name);
+      end;
+    end;
+  end;
 procedure ask(question:string);
-begin
-case question of
-'Сколько тебе лет?': writeln('Я же отвечала, ', year + 1);
-'Сколько тебе лет': writeln('Я же отвечала, ', year + 1);
-'Кто тебя создал?': writeln('Ученик Савинов Кирилл, 8 "Б", школа №17, город Екатеринбург');
-'Кто тебя создал': writeln('Ученик Савинов Кирилл, 8 "Б", школа №17, город Екатеринбург');
-'Как дела?': 
+  begin
+  case question of
+  'Сколько тебе лет?': writeln('Я же отвечала, ', year + 1);
+  'Сколько тебе лет': writeln('Я же отвечала, ', year + 1);
+  'Кто тебя создал?': writeln('Ученик Савинов Кирилл, 8 "Б", школа №17, город Екатеринбург');
+  'Кто тебя создал': writeln('Ученик Савинов Кирилл, 8 "Б", школа №17, город Екатеринбург');
+  'Как дела?': 
    begin
     writeln('Отлично, а у тебя?');
     readln(otvet1);
@@ -44,8 +44,6 @@ case question of
         'Нормально': writeln('Уже лучше =)');
         'Хорошо': writeln('Воот! Ведь можешь же, когда захочешь =)');
         'Отлично': writeln('У меня тоже, как видишь =)');
-      
-      
       end;
     end;
     'Ужасно':
@@ -83,34 +81,31 @@ case question of
       end;
     end;
   end;
-
-else
-    begin
-    writeln('Я тебя не понимаю =(');
-    writeln('Задай другой вопрос!');
-    writeln('По поводу грамматических ошибок и "багов", писать сюда');
-    writeln('kssavinov@mail.ru');
+    else
+      begin
+        writeln('Я тебя не понимаю =(');
+        writeln('Задай другой вопрос!');
+        writeln('По поводу грамматических ошибок и "багов", писать сюда');
+        writeln('kssavinov@mail.ru');
+      end;
     end;
-end;
-
-end;
-
-begin
-textcolor(Green);
-writeln('Привет, я программа которая отвечает на вопросы.');
-writeln('Меня зовут Сири, да-да мое имя такое же как у той программы из Apple...');
-writeln('Вообщем не важно, а тебя как зовут?');
-readln(name);
-names(name);
-writeln('Сколько тебе лет?');
-readln(year);
-    if year = 18 then writeln('Ого какой большой');
-writeln('А мне ', year + 1);
-writeln('Задай мне вопрос(Например: Как дела?).');
-count:=0;
-while count=0 do
-begin
-readln(vopros);
-ask(vopros);
-end;
-end.
+  end;
+  begin
+    textcolor(Green);
+      writeln('Привет, я программа которая отвечает на вопросы.');
+      writeln('Меня зовут Сири, да-да мое имя такое же как у той программы из Apple...');
+      writeln('Вообщем не важно, а тебя как зовут?');
+      readln(name);
+      names(name);
+      writeln('Сколько тебе лет?');
+      readln(year);
+      if year = 18 then writeln('Ого какой большой');
+        writeln('А мне ', year + 1);
+        writeln('Задай мне вопрос(Например: Как дела?).');
+        count:=0;
+      while count=0 do
+  begin
+    readln(vopros);
+    ask(vopros);
+  end;
+ end.
